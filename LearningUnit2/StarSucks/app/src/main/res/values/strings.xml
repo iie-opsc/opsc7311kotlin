@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">StarSucks</string>
+    <string name="order_now_label">Order Now</string>
 </resources>
