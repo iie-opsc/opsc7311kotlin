@@ -8,10 +8,10 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="192dp"
-        android:layout_height="178dp"
-        android:layout_gravity="center_horizontal"
-        app:srcCompat="@drawable/starsuckslogo" />
+        android:id="@+id/starsuckslogo"
+        android:layout_width="232dp"
+        android:layout_height="152dp"
+        android:src="@drawable/starsuckslogo"
+        android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>
