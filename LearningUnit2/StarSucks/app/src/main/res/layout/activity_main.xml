@@ -19,7 +19,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:textSize="30sp"
-        android:text="@string/order_now_label" />
+        android:fontFamily="@font/hind_guntur_light"
+        android:text="@string/order_now_label"
+        android:textColor="@color/starsucksGreen"
+        android:textSize="30sp" />
 
 </LinearLayout>
