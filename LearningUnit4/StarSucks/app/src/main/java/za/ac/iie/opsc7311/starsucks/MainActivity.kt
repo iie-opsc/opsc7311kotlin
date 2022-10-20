@@ -16,5 +16,25 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this@MainActivity, "MMM Soy Latte",
                             Toast.LENGTH_SHORT).show()
         }
+        binding.imgSb2.setOnClickListener() {
+            Toast.makeText(this@MainActivity, "MMM Chocco Frapp",
+                Toast.LENGTH_SHORT).show()
+        }
+        binding.imgSb3.setOnClickListener() {
+            Toast.makeText(this@MainActivity, "MMM Bottled Americano",
+                Toast.LENGTH_SHORT).show()
+        }
+        binding.imgSb4.setOnClickListener() {
+            Toast.makeText(this@MainActivity, "MMM Rainbow Frapp",
+                Toast.LENGTH_SHORT).show()
+        }
+        binding.imgSb5.setOnClickListener() {
+            Toast.makeText(this@MainActivity, "MMM Caramel Frapp",
+                Toast.LENGTH_SHORT).show()
+        }
+        binding.imgSb6.setOnClickListener() {
+            Toast.makeText(this@MainActivity, "MMM Black Forest Frapp",
+                Toast.LENGTH_SHORT).show()
+        }
     }
 }
