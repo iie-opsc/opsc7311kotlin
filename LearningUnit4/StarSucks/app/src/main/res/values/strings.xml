@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name" translatable="false">StarSucks</string>
+    <string name="order_now_label" translatable="true">Order Now</string>
+</resources>
