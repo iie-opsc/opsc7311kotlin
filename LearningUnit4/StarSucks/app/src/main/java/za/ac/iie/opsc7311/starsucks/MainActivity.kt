@@ -25,15 +25,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when(v?.id) {
-            R.id.img_sb1 -> order.productName = "MMM Soy Latte"
-            R.id.img_sb2 -> order.productName = "MMM Chocco Frapp"
-            R.id.img_sb3 -> order.productName = "MMM Bottled Americano"
-            R.id.img_sb4 -> order.productName = "MMM Rainbow Frapp"
-            R.id.img_sb5 -> order.productName = "MMM Caramel Frapp"
-            R.id.img_sb6 -> order.productName = "MMM Black Forest Frapp"
+            R.id.img_sb1 -> order.productName = "Soy Latte"
+            R.id.img_sb2 -> order.productName = "Chocco Frapp"
+            R.id.img_sb3 -> order.productName = "Bottled Americano"
+            R.id.img_sb4 -> order.productName = "Rainbow Frapp"
+            R.id.img_sb5 -> order.productName = "Caramel Frapp"
+            R.id.img_sb6 -> order.productName = "Black Forest Frapp"
         }
         Toast.makeText(this@MainActivity,
-            order.productName, Toast.LENGTH_SHORT).show()
+            "MMM " + order.productName, Toast.LENGTH_SHORT).show()
         openIntent(applicationContext, order.productName,
             OrderDetailsActivity::class.java)
     }
