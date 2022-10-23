@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single" >
+        <item
+            android:id="@+id/nav_main"
+            android:icon="@drawable/ic_baseline_monetization_on_24"
+            android:title="Place an Order" />
+        <item
+            android:id="@+id/nav_photo"
+            android:icon="@drawable/ic_menu_photo"
+            android:title="Take a Photo" />
+    </group>
+</menu>
