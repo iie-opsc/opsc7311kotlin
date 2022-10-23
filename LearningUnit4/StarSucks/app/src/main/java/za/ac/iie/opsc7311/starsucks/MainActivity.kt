@@ -2,13 +2,16 @@ package za.ac.iie.opsc7311.starsucks
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import com.google.android.material.navigation.NavigationView
 import za.ac.iie.opsc7311.starsucks.databinding.ActivityMainWithNavDrawerBinding
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener,
+        NavigationView.OnNavigationItemSelectedListener {
 
     var order = Order()
     private lateinit var binding: ActivityMainWithNavDrawerBinding
@@ -34,6 +37,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.string.navigation_drawer_close)
         binding.drawerLayout.addDrawerListener(toggleOnOff)
         toggleOnOff.syncState()
+
+        binding.navView.bringToFront()
+        binding.navView.setNavigationItemSelectedListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -59,5 +65,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             // otherwise, let the super class handle it
             super.onBackPressed()
         }
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+         // TODO: navigate to photo activity!
+        when(item.itemId) {
+//            R.id.nav_photo ->
+        }
+        binding.drawerLayout.closeDrawer(GravityCompat.START)
+        // returning true marks the item as selected
+        return true
     }
 }
