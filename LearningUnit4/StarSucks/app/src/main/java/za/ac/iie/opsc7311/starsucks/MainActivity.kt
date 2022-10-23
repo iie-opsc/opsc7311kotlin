@@ -4,15 +4,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import za.ac.iie.opsc7311.starsucks.databinding.ActivityMainBinding
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import za.ac.iie.opsc7311.starsucks.databinding.ActivityMainWithNavDrawerBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     var order = Order()
+    private lateinit var binding: ActivityMainWithNavDrawerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainWithNavDrawerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.imgSb1.setOnClickListener(this)
@@ -21,6 +24,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.imgSb4.setOnClickListener(this)
         binding.imgSb5.setOnClickListener(this)
         binding.imgSb6.setOnClickListener(this)
+
+        setSupportActionBar(binding.navToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        var toggleOnOff = ActionBarDrawerToggle(this,
+            binding.drawerLayout, binding.navToolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close)
+        binding.drawerLayout.addDrawerListener(toggleOnOff)
+        toggleOnOff.syncState()
     }
 
     override fun onClick(v: View?) {
@@ -36,5 +49,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             "MMM " + order.productName, Toast.LENGTH_SHORT).show()
         openIntent(applicationContext, order.productName,
             OrderDetailsActivity::class.java)
+    }
+
+    override fun onBackPressed() {
+        // if the drawer is open, close it
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            // otherwise, let the super class handle it
+            super.onBackPressed()
+        }
     }
 }
