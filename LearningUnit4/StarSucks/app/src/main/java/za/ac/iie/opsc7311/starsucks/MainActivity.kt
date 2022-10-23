@@ -68,9 +68,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-         // TODO: navigate to photo activity!
         when(item.itemId) {
-//            R.id.nav_photo ->
+            R.id.nav_photo -> openIntent(applicationContext, "",
+                                CoffeeSnapsActivity::class.java)
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         // returning true marks the item as selected
