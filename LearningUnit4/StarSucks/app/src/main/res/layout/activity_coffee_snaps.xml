@@ -65,9 +65,22 @@
             <androidx.camera.view.PreviewView
                 android:id="@+id/img_cameraImage"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </androidx.camera.view.PreviewView>
+                android:layout_height="match_parent"></androidx.camera.view.PreviewView>
 
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="270dp"
+            android:layout_height="167dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:id="@+id/img_SavedPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_launcher_background"
+                ></ImageView>
         </androidx.cardview.widget.CardView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

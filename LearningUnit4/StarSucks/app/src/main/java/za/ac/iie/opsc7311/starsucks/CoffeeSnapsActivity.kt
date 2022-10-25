@@ -65,6 +65,11 @@ class CoffeeSnapsActivity : AppCompatActivity() {
                     override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                         Log.d("CoffeeSnapsActivity",
                             "Photo saved to ${outputFileResults.savedUri}")
+                        // With thanks to the tutorial at
+                        // https://www.tutorialkart.com/kotlin-android/original-thread-created-view-hierarchy-can-touch-views/
+                        this@CoffeeSnapsActivity.runOnUiThread(java.lang.Runnable {
+                            binding.imgSavedPhoto.setImageURI(outputFileResults.savedUri)
+                        })
                     }
                 })
         }
