@@ -62,12 +62,11 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp">
 
-            <ImageView
+            <androidx.camera.view.PreviewView
                 android:id="@+id/img_cameraImage"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher_round">
-            </ImageView>
+                android:layout_height="match_parent">
+            </androidx.camera.view.PreviewView>
 
         </androidx.cardview.widget.CardView>
 
