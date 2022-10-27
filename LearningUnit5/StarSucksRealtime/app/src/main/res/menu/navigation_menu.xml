@@ -10,5 +10,9 @@
             android:id="@+id/nav_photo"
             android:icon="@drawable/ic_menu_photo"
             android:title="Take a Photo" />
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/date"
+            android:title="View Order History" />
     </group>
 </menu>

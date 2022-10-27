@@ -19,4 +19,10 @@ class Order() {
         customerCell = cCell
         orderDate = oDate
     }
+
+    override fun toString(): String {
+        return "Customer Name: ${customerName}\n" +
+                "Product Name: ${productName}\n" +
+                "Order Date: ${orderDate}"
+    }
 }
