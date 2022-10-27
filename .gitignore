@@ -84,3 +84,4 @@ lint/outputs/
 lint/tmp/
 # lint/reports/
 LearningUnit4/StarSucks/.idea/deploymentTargetDropDown.xml
+LearningUnit5/StarSucksRealtime/app/google-services.json
