@@ -3,13 +3,17 @@ package za.ac.iie.opsc7311.starsucks
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.DatePicker
 import android.widget.Toast
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import za.ac.iie.opsc7311.starsucks.databinding.ActivityOrderDetailsBinding
 import java.util.*
 
 class OrderDetailsActivity : AppCompatActivity() {
     var order = Order()
+    val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +66,15 @@ class OrderDetailsActivity : AppCompatActivity() {
                     !order.orderDate.isNullOrEmpty() && !order.productName.isNullOrBlank()) {
 
                 // add the order to the list of orders
-                // TODO Write to database
+                db.collection("orders")
+                    .add(order)
+                    .addOnSuccessListener { documentReference ->
+                        Log.d("Order Details",
+                            "DocumentSnapshot added with ID: ${documentReference.id}")
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w("Order Details", "Error adding document", e)
+                    }
             } else {
                 // message to display to the user if something is missing
                 Toast.makeText(this@OrderDetailsActivity,
