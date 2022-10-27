@@ -71,6 +71,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         when(item.itemId) {
             R.id.nav_photo -> openIntent(applicationContext, "",
                                 CoffeeSnapsActivity::class.java)
+            R.id.nav_history -> openIntent(applicationContext, "",
+                                   OrderHistoryActivity::class.java)
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         // returning true marks the item as selected
