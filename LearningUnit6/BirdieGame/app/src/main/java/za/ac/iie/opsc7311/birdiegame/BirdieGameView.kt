@@ -32,9 +32,9 @@ class BirdieGameView(context: Context?) : View(context) {
     private var canvasWidth = 0
 
     // pugicorn state
-    var pugiX = canvasWidth + 20
-    var pugiY = 0
-    var pugiSpeed = 15
+    private var pugiX = -1f
+    private var pugiY = 0f
+    private var pugiSpeed = 15
 
 
     init {
@@ -82,6 +82,14 @@ class BirdieGameView(context: Context?) : View(context) {
             canvas?.drawBitmap(birdDown, birdX, birdY, null)
         }
         birdSpeed += 2
+
+        // draw the pugicorn
+        pugiX -= pugiSpeed
+        if (pugiX < 0) {
+            pugiX = (canvasWidth + 20).toFloat()
+            pugiY = (Math.floor(Math.random() * (maxBirdY - minBirdY)) + minBirdY).toFloat()
+        }
+        canvas?.drawBitmap(pugicorn, pugiX, pugiY, null)
 
         // draw the score and level
         canvas?.drawText("Score: 0", 20f, 60f, scoreCounter)
