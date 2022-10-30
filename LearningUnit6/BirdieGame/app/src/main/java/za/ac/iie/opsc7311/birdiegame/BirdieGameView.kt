@@ -2,6 +2,7 @@ package za.ac.iie.opsc7311.birdiegame
 
 import android.content.Context
 import android.graphics.*
+import android.view.MotionEvent
 import android.view.View
 
 class BirdieGameView(context: Context?) : View(context) {
@@ -29,6 +30,12 @@ class BirdieGameView(context: Context?) : View(context) {
     // screen size
     private var canvasHeight = 0
     private var canvasWidth = 0
+
+    // pugicorn state
+    var pugiX = canvasWidth + 20
+    var pugiY = 0
+    var pugiSpeed = 15
+
 
     init {
         scoreCounter.color = Color.BLACK
@@ -63,9 +70,18 @@ class BirdieGameView(context: Context?) : View(context) {
 
         // calculate the position of the bird
         birdY += birdSpeed
+        if (birdY > maxBirdY) {
+            birdY = maxBirdY.toFloat()
+        }
 
-        // draw the bird
-        canvas?.drawBitmap(bird, 0.0f, 0.0f, null)
+        // draw the bird, animating to flap the wings
+        if (touchFlag) {
+            canvas?.drawBitmap(bird, birdX, birdY, null)
+            touchFlag = false
+        } else {
+            canvas?.drawBitmap(birdDown, birdX, birdY, null)
+        }
+        birdSpeed += 2
 
         // draw the score and level
         canvas?.drawText("Score: 0", 20f, 60f, scoreCounter)
@@ -75,5 +91,13 @@ class BirdieGameView(context: Context?) : View(context) {
         canvas?.drawBitmap(lifealive, canvasWidth.toFloat() - 300, 30f, null)
         canvas?.drawBitmap(lifealive, canvasWidth.toFloat() - 200, 30f, null)
         canvas?.drawBitmap(lifealive, canvasWidth.toFloat() - 100, 30f, null)
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        if (event?.action == MotionEvent.ACTION_DOWN) {
+            touchFlag = true
+            birdSpeed = -20
+        }
+        return true
     }
 }
