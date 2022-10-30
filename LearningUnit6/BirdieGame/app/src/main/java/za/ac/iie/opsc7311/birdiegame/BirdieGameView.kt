@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.*
 import android.view.MotionEvent
 import android.view.View
+import android.widget.Toast
 
 class BirdieGameView(context: Context?) : View(context) {
 
@@ -36,6 +37,8 @@ class BirdieGameView(context: Context?) : View(context) {
     private var pugiY = 0f
     private var pugiSpeed = 15
 
+    // player state
+    private var score = 0
 
     init {
         scoreCounter.color = Color.BLACK
@@ -91,8 +94,16 @@ class BirdieGameView(context: Context?) : View(context) {
         }
         canvas?.drawBitmap(pugicorn, pugiX, pugiY, null)
 
+        // check for collision
+        if (collisionCheck(pugiX, pugiY)) {
+            score += 10
+            Toast.makeText(this@BirdieGameView.context,
+                "Pugicorn!", Toast.LENGTH_SHORT).show()
+            pugiX = -100f
+        }
+
         // draw the score and level
-        canvas?.drawText("Score: 0", 20f, 60f, scoreCounter)
+        canvas?.drawText("Score: ${score}", 20f, 60f, scoreCounter)
         canvas?.drawText("Level 1", canvasWidth.toFloat()/2, 60f, levelCounter)
 
         // display the icons for the lives
@@ -107,5 +118,14 @@ class BirdieGameView(context: Context?) : View(context) {
             birdSpeed = -20
         }
         return true
+    }
+
+    // check for a collision
+    private fun collisionCheck(x: Float, y: Float) : Boolean {
+        if (birdX < x && x < (birdX + bird.width) &&
+            birdY < y && y < (birdY + bird.height)) {
+            return true
+        }
+        return false
     }
 }
