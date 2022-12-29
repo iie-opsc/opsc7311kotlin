@@ -1,4 +1,4 @@
-# opsc7311kotlin
+# Open Source Coding (Introduction) (OPSC7311)
 This repository contains the example code for OPSC7311 (Kotlin edition).
 
 Each Learning Unit has its own folder.
